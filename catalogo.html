@@ -213,7 +213,7 @@ addEventListener('scroll',release,{passive:true});window.bindTargets();
 (function loop(){requestAnimationFrame(loop);if(snapped)return;rx+=(tx-rx)*.22;ry+=(ty-ry)*.22;ret.style.width=FREE+'px';ret.style.height=FREE+'px';ret.style.left=rx+'px';ret.style.top=ry+'px';})();})();
 const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
 /* hero particles */
-window.addEventListener('load',()=>{if(typeof THREE=='undefined'||reduce)return;const c=document.getElementById('herocanvas');let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
+window.addEventListener('load',()=>{if(typeof THREE=='undefined'||reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches||innerWidth<1024)return;const c=document.getElementById('herocanvas');let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
 const hero=c.parentElement;function sz(){r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(hero.clientWidth,hero.clientHeight);}
 const sc=new THREE.Scene();const cam=new THREE.PerspectiveCamera(50,hero.clientWidth/hero.clientHeight,.1,100);cam.position.z=6;
 const cv=document.createElement('canvas');cv.width=cv.height=64;const g=cv.getContext('2d');const gr=g.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'#fff');gr.addColorStop(.4,'rgba(255,210,120,.6)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);const tx=new THREE.CanvasTexture(cv);
