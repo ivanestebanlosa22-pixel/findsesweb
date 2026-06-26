@@ -68,6 +68,10 @@ body{
 /* ---------- content ---------- */
 main{position:relative;z-index:10}
 .panel{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:9vh 6vw;pointer-events:none}
+/* LEGIBILIDAD GARANTIZADA: el 3D/logo solo se ve en el hero. Todas las demas
+   secciones llevan fondo oscuro solido para que el texto blanco se lea siempre,
+   tanto en movil (fondo estatico) como en PC (escena 3D) -- nada se transparenta detras */
+.panel:not(#hero){background:var(--void)}
 .wrap{max-width:1080px;width:100%}
 /* solo opacity+transform => animacion compositada en GPU (sin trabajo en el hilo principal) */
 .reveal{opacity:0;transform:translateY(38px);will-change:opacity,transform;
