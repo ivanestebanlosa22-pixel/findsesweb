@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap"></noscript>
-<script>if(matchMedia("(hover:hover) and (pointer:fine)").matches&&innerWidth>=1024&&!matchMedia("(prefers-reduced-motion:reduce)").matches){var t=document.createElement("script");t.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";document.head.appendChild(t);}</script>
+<script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches&&!(matchMedia("(pointer:coarse)").matches&&Math.min(innerWidth,innerHeight)<700)){var t=document.createElement("script");t.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";document.head.appendChild(t);}</script>
 <style>
 :root{--void:#060507;--gold:#E8A317;--gold-bright:#FFCB45;--gold-deep:#8a5d0a;--chrome:#ECECF1;--chrome-dim:#8d8d97;--violet:#9C46FF;--neon:#21E6A4;--line:rgba(232,163,23,.16)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -198,7 +198,7 @@ function release(){if(!snapped)return;rx=parseFloat(ret.style.left)||rx;ry=parse
 window.FSbind=function(){document.querySelectorAll('.cta,.btn-nav,.stepdot,.nav .links a').forEach(t=>{if(t._b)return;t._b=1;t.addEventListener('mouseenter',()=>snapTo(t));t.addEventListener('mouseleave',release);});};
 addEventListener('scroll',release,{passive:true});window.FSbind();
 (function loop(){requestAnimationFrame(loop);if(snapped)return;rx+=(tx-rx)*.22;ry+=(ty-ry)*.22;ret.style.width=FREE+'px';ret.style.height=FREE+'px';ret.style.left=rx+'px';ret.style.top=ry+'px';})();})();
-addEventListener('load',()=>{const c=document.getElementById('bg');if(!c||typeof THREE=='undefined'||reduce||!matchMedia('(hover:hover) and (pointer:fine)').matches||innerWidth<1024)return;let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
+addEventListener('load',()=>{const c=document.getElementById('bg');if(!c||typeof THREE=='undefined'||reduce||(matchMedia('(pointer:coarse)').matches&&Math.min(innerWidth,innerHeight)<700))return;let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
 r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(innerWidth,innerHeight);const sc=new THREE.Scene();const cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);cam.position.z=6;
 const cv=document.createElement('canvas');cv.width=cv.height=64;const g=cv.getContext('2d');const gr=g.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'#fff');gr.addColorStop(.4,'rgba(255,210,120,.6)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);const tx=new THREE.CanvasTexture(cv);
 const N=innerWidth<760?500:1100,po=new Float32Array(N*3),co=new Float32Array(N*3),s=new Float32Array(N),cs=[new THREE.Color(0xffcb45),new THREE.Color(0x8a5d0a),new THREE.Color(0x9c46ff)],t=new THREE.Color();

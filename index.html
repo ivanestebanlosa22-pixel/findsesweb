@@ -760,12 +760,15 @@ function showStatic(){
 }
 
 function wants3D(){
-  if(reduce) return false;                                          // respeta "reducir movimiento"
-  if(!('WebGLRenderingContext' in window)) return false;            // sin WebGL, ni lo intentamos
-  if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return false; // tactil => fondo estatico
-  if(innerWidth < 1024) return false;                              // pantallas pequenas => estatico
-  if(navigator.deviceMemory && navigator.deviceMemory < 4) return false;        // <4GB RAM
-  if(navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) return false; // <4 nucleos
+  if(reduce) return false;                                   // respeta "reducir movimiento"
+  if(!('WebGLRenderingContext' in window)) return false;     // sin WebGL, ni lo intentamos
+  // Solo saltamos el 3D en MOVILES pequenos (rendimiento/bateria). Un PC,
+  // portatil (aunque sea tactil) o tablet SI muestran la escena.
+  // Telefono = puntero principal tactil Y lado corto de pantalla pequeno.
+  const shortSide = Math.min(window.innerWidth, window.innerHeight);
+  const touchPhone = matchMedia('(pointer:coarse)').matches && shortSide < 700;
+  if(touchPhone) return false;
+  if(navigator.deviceMemory && navigator.deviceMemory < 2) return false; // equipos muy justos de RAM
   return true;
 }
 
