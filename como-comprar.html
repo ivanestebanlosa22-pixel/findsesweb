@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo comprar — FINDSES · Guía paso a paso con agentes</title>
+<meta name="description" content="Cómo comprar en agentes chinos paso a paso: crea tu cuenta en Kakobuy con el código FINDSES, busca en el catálogo, paga, envía a España y aplica tu cupón.">
+<link rel="canonical" href="https://findses.com/como-comprar.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<style>
+:root{--void:#060507;--gold:#E8A317;--gold-bright:#FFCB45;--gold-deep:#8a5d0a;--chrome:#ECECF1;--chrome-dim:#8d8d97;--violet:#9C46FF;--neon:#21E6A4;--line:rgba(232,163,23,.16)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(900px 600px at 82% -5%,rgba(156,70,255,.13),transparent 60%),radial-gradient(800px 600px at 6% 10%,rgba(232,163,23,.10),transparent 55%),var(--void);
+color:var(--chrome);font-family:'Sora',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+::selection{background:var(--gold);color:#0a0a0a}
+a{color:inherit}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.grain{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+#reticle{position:fixed;left:0;top:0;width:30px;height:30px;z-index:31;pointer-events:none;opacity:0;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .26s cubic-bezier(.2,.8,.2,1),height .26s cubic-bezier(.2,.8,.2,1),opacity .3s}
+#reticle.snap{transition:left .2s cubic-bezier(.2,.8,.2,1),top .2s cubic-bezier(.2,.8,.2,1),width .26s,height .26s,opacity .3s}
+#reticle .c{position:absolute;width:11px;height:11px;border:2px solid var(--gold-bright);filter:drop-shadow(0 0 5px rgba(255,203,69,.9))}
+#reticle .tl{left:0;top:0;border-right:0;border-bottom:0}#reticle .tr{right:0;top:0;border-left:0;border-bottom:0}
+#reticle .bl{left:0;bottom:0;border-right:0;border-top:0}#reticle .br{right:0;bottom:0;border-left:0;border-top:0}
+#reticle .dot{position:absolute;left:50%;top:50%;width:3px;height:3px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 6px var(--gold-bright);transform:translate(-50%,-50%)}
+#reticle.snap .dot{opacity:0}
+@media(prefers-reduced-motion:reduce){#reticle{display:none}}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:15px clamp(18px,5vw,48px);transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(8,7,10,.8);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav .brand{font-family:'Saira Condensed';font-weight:900;font-size:20px;letter-spacing:.03em;transform:skewX(-8deg);text-decoration:none}
+.nav .brand .a{color:var(--chrome)}.nav .brand .g{color:var(--gold)}
+.nav .links{display:flex;gap:clamp(12px,2.2vw,28px)}
+.nav .links a{font-family:'Space Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--chrome-dim);text-decoration:none;transition:color .3s}
+.nav .links a:hover,.nav .links a.active{color:var(--gold)}
+@media(max-width:560px){.nav .links a.hide-sm{display:none}}
+.wrap{position:relative;z-index:10;max-width:880px;margin:0 auto;padding:18vh clamp(16px,5vw,40px) 60px;text-align:center}
+.eyebrow{font-family:'Space Mono';font-size:clamp(10px,1.3vw,13px);letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+h1{font-family:'Saira Condensed';font-weight:900;line-height:.92;text-transform:uppercase;transform:skewX(-7deg);font-size:clamp(40px,8vw,82px)}
+h1 em{font-style:normal;color:var(--gold);text-shadow:0 0 40px rgba(232,163,23,.45)}
+.intro{font-weight:300;color:var(--chrome-dim);font-size:clamp(14px,2vw,17px);max-width:50ch;margin:16px auto 0}
+/* progress */
+.progress-wrap{margin:42px 0 30px}
+.pbar{height:3px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.pbar i{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-bright));box-shadow:0 0 14px var(--gold);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.pmeta{display:flex;justify-content:space-between;font-family:'Space Mono';font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--chrome-dim);margin-top:10px}
+.steps{display:flex;justify-content:space-between;margin:24px 0 34px;gap:6px}
+.stepdot{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer}
+.stepdot .n{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Saira Condensed';font-weight:800;font-size:18px;color:var(--chrome-dim);transition:all .4s}
+.stepdot .lb{font-family:'Space Mono';font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--chrome-dim);transition:color .4s}
+.stepdot.active .n{border-color:var(--gold);color:var(--gold-bright);box-shadow:0 0 22px rgba(232,163,23,.5);background:rgba(232,163,23,.08)}
+.stepdot.active .lb{color:var(--gold)}
+.stepdot.done .n{border-color:var(--gold-deep);color:var(--gold)}
+@media(max-width:620px){.stepdot .lb{display:none}}
+/* card */
+.card{border:1px solid var(--line);border-radius:22px;padding:clamp(26px,4vw,44px);background:linear-gradient(165deg,rgba(255,255,255,.025),rgba(12,11,15,.45));backdrop-filter:blur(8px);text-align:left;min-height:300px}
+.card .tag{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.card h2{font-family:'Saira Condensed';font-weight:900;text-transform:uppercase;font-size:clamp(28px,5vw,44px);line-height:.98;transform:skewX(-5deg)}
+.card .lead{color:var(--chrome-dim);font-weight:300;margin:10px 0 22px;font-size:15px}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.card li{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5}
+.card li svg{width:20px;height:20px;color:var(--gold);flex:none;margin-top:2px}
+.card li b{color:var(--chrome)}
+.card .cta{display:inline-flex;align-items:center;gap:10px;font-family:'Saira Condensed';font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:16px;color:#100b02;background:linear-gradient(180deg,var(--gold-bright),var(--gold));padding:13px 26px;border-radius:50px;text-decoration:none;transform:skewX(-5deg);transition:transform .3s,box-shadow .3s}
+.card .cta span{display:inline-block;transform:skewX(5deg)}
+.card .cta:hover{transform:skewX(-5deg) translateY(-3px);box-shadow:0 16px 40px -16px rgba(232,163,23,.8)}
+.bonus{display:inline-block;margin-left:10px;font-family:'Space Mono';font-size:11px;color:var(--neon);vertical-align:middle}
+.nav-btns{display:flex;justify-content:space-between;margin-top:28px;gap:12px}
+.btn-nav{font-family:'Saira Condensed';font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:14px;border-radius:50px;padding:12px 24px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--chrome-dim);transition:all .3s}
+.btn-nav:hover:not(:disabled){color:var(--gold);border-color:var(--gold)}
+.btn-nav:disabled{opacity:.3;cursor:not-allowed}
+.btn-nav.primary{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#100b02;border-color:transparent}
+.foot{position:relative;z-index:10;border-top:1px solid var(--line);text-align:center;padding:36px 6vw 50px;margin-top:40px}
+.foot p{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;color:var(--chrome-dim);text-transform:uppercase}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="grain"></div>
+<div id="reticle"><span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span><span class="dot"></span></div>
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><span class="a">FIND</span><span class="g">SES</span></a>
+  <nav class="links">
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="como-comprar.html" class="active">Cómo comprar</a>
+    <a href="herramientas.html" class="hide-sm">Herramientas</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="eyebrow">Guía paso a paso</div>
+  <h1>Cómo <em>comprar</em></h1>
+  <p class="intro">En 5 pasos pasas de no tener cuenta a recibir tu pedido en España. Sigue el flujo y aprovecha tu bono.</p>
+
+  <div class="progress-wrap">
+    <div class="pbar"><i id="pbar"></i></div>
+    <div class="pmeta"><span id="pstep">Paso 1 de 5</span><span id="ppct">20% completado</span></div>
+  </div>
+
+  <div class="steps" id="steps"></div>
+
+  <div class="card" id="card"></div>
+
+  <div class="nav-btns">
+    <button class="btn-nav" id="prev" onclick="go(-1)">← Anterior</button>
+    <button class="btn-nav primary" id="next" onclick="go(1)">Siguiente paso →</button>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="brandcol">
+    <div class="brand"><b><span class="a">FIND</span><span class="g">SES</span></b></div>
+    <p class="tag">Los mejores hallazgos de China, directos a tu armario. Encuentra, compara y compra con agentes verificados.</p>
+  </div>
+  <div>
+    <h5>Explorar</h5>
+    <a href="catalogo.html">Catálogo</a>
+    <a href="como-comprar.html">Cómo comprar</a>
+    <a href="herramientas.html">Herramientas</a>
+    <a href="index.html">Inicio</a>
+  </div>
+  <div>
+    <h5>Legal</h5>
+    <a href="aviso-legal.html">Aviso Legal</a>
+    <a href="terminos.html">Términos</a>
+    <a href="privacidad.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="afiliados.html">Afiliados</a>
+  </div>
+  <div class="legal">
+    <span>&copy; 2026 FINDSES. Todos los derechos reservados.</span>
+    <a href="aviso-legal.html">Aviso Legal</a>
+    <a href="terminos.html">Términos</a>
+    <a href="privacidad.html">Privacidad</a>
+  </div>
+</footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const STEPS=[
+  {lb:"Crea",tag:"Paso 1",h:"Crea tu cuenta",lead:"Empieza registrándote en Kakobuy con el código FINDSES y desbloquea tu bono de bienvenida.",
+   items:[["Regístrate en Kakobuy en 1 minuto, solo con tu email."],
+          ["Usa el código <b>FINDSES</b> para activar el bono de bienvenida."],
+          ["También puedes usar USFans o Litbuy si lo prefieres."]],
+   cta:["Crear cuenta en Kakobuy","https://ikako.vip/r/FINDSES","Bono 450 €"]},
+  {lb:"Explora",tag:"Paso 2",h:"Encuentra tu hallazgo",lead:"Busca en el catálogo de FindsES por categoría o marca y elige lo que quieres.",
+   items:[["Filtra por categoría: zapatillas, ropa, bolsos, gorras…"],
+          ["Mira las <b>fotos QC reales</b> antes de decidir."],
+          ["Cada producto trae su enlace directo al agente."]],
+   cta:["Ir al catálogo","catalogo.html",""]},
+  {tag:"Paso 3",lb:"Compra",h:"Haz el pedido",lead:"Pega el enlace del producto en el agente, elige talla y color, y paga el producto.",
+   items:[["Copia el enlace del producto desde FindsES."],
+          ["Pégalo en el buscador del agente y elige <b>talla y color</b>."],
+          ["Paga el producto: el agente lo compra por ti y lo recibe en su almacén."]],
+   cta:["Abrir conversor de enlaces","herramientas.html",""]},
+  {tag:"Paso 4",lb:"Envío",h:"Envía a España",lead:"Cuando tu producto llegue al almacén del agente, eliges cómo enviarlo a casa.",
+   items:[["Revisa de nuevo las <b>fotos QC</b> antes de enviar."],
+          ["Consolida varios productos en un solo paquete para ahorrar."],
+          ["Elige la línea de envío a España y paga el envío."]],
+   cta:["Calcular el envío","herramientas.html",""]},
+  {tag:"Paso 5",lb:"Aplica",h:"Aplica tu cupón",lead:"Antes de pagar el envío, aplica tus cupones para maximizar el ahorro.",
+   items:[["Introduce los cupones disponibles en tu cuenta."],
+          ["Aprovecha el bono de bienvenida de <b>FINDSES</b>."],
+          ["Confirma y… ¡a esperar tu paquete en España!"]],
+   cta:["Volver al catálogo","catalogo.html",""]}
+];
+let cur=0;
+const steps=document.getElementById('steps'),card=document.getElementById('card');
+steps.innerHTML=STEPS.map((s,i)=>`<div class="stepdot" data-i="${i}" onclick="jump(${i})"><div class="n">${i+1}</div><div class="lb">${s.lb||s.tag}</div></div>`).join('');
+function render(){
+  const s=STEPS[cur];
+  document.getElementById('pbar').style.width=((cur+1)/STEPS.length*100)+'%';
+  document.getElementById('pstep').textContent=`Paso ${cur+1} de ${STEPS.length}`;
+  document.getElementById('ppct').textContent=Math.round((cur+1)/STEPS.length*100)+'% completado';
+  [...steps.children].forEach((d,i)=>{d.className='stepdot'+(i===cur?' active':'')+(i<cur?' done':'');});
+  const tick='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  card.innerHTML=`<div class="tag">${s.tag}</div><h2>${s.h}</h2><p class="lead">${s.lead}</p>
+    <ul>${s.items.map(it=>`<li>${tick}<span>${it[0]}</span></li>`).join('')}</ul>
+    <a class="cta" href="${s.cta[1]}" ${s.cta[1].startsWith('http')?'target="_blank" rel="noopener sponsored"':''}><span>${s.cta[0]} →</span></a>${s.cta[2]?`<span class="bonus">★ ${s.cta[2]}</span>`:''}`;
+  document.getElementById('prev').disabled=cur===0;
+  document.getElementById('next').textContent=cur===STEPS.length-1?'Empezar de nuevo':'Siguiente paso →';
+  if(window.FSbind)window.FSbind();
+}
+function go(d){ if(cur===STEPS.length-1&&d>0){cur=0;}else{cur=Math.max(0,Math.min(STEPS.length-1,cur+d));} render(); }
+function jump(i){cur=i;render();}
+render();
+
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+(function(){const canHover=matchMedia('(hover:hover)').matches&&!reduce;const ret=document.getElementById('reticle');if(!canHover){ret.style.display='none';return;}
+const FREE=30;let rx=innerWidth/2,ry=innerHeight/2,tx=rx,ty=ry,snapped=false;
+addEventListener('mousemove',e=>{ret.style.opacity='1';if(!snapped){tx=e.clientX;ty=e.clientY;}},{passive:true});
+addEventListener('mouseleave',()=>ret.style.opacity='0');
+function snapTo(el){const r=el.getBoundingClientRect(),p=8;snapped=true;ret.classList.add('snap');ret.style.width=(r.width+p*2)+'px';ret.style.height=(r.height+p*2)+'px';ret.style.left=(r.left+r.width/2)+'px';ret.style.top=(r.top+r.height/2)+'px';}
+function release(){if(!snapped)return;rx=parseFloat(ret.style.left)||rx;ry=parseFloat(ret.style.top)||ry;snapped=false;ret.classList.remove('snap');}
+window.FSbind=function(){document.querySelectorAll('.cta,.btn-nav,.stepdot,.nav .links a').forEach(t=>{if(t._b)return;t._b=1;t.addEventListener('mouseenter',()=>snapTo(t));t.addEventListener('mouseleave',release);});};
+addEventListener('scroll',release,{passive:true});window.FSbind();
+(function loop(){requestAnimationFrame(loop);if(snapped)return;rx+=(tx-rx)*.22;ry+=(ty-ry)*.22;ret.style.width=FREE+'px';ret.style.height=FREE+'px';ret.style.left=rx+'px';ret.style.top=ry+'px';})();})();
+addEventListener('load',()=>{const c=document.getElementById('bg');if(!c||typeof THREE=='undefined'||reduce)return;let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
+r.setPixelRatio(Math.min(devicePixelRatio,2));r.setSize(innerWidth,innerHeight);const sc=new THREE.Scene();const cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);cam.position.z=6;
+const cv=document.createElement('canvas');cv.width=cv.height=64;const g=cv.getContext('2d');const gr=g.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'#fff');gr.addColorStop(.4,'rgba(255,210,120,.6)');gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);const tx=new THREE.CanvasTexture(cv);
+const N=innerWidth<760?500:1100,po=new Float32Array(N*3),co=new Float32Array(N*3),s=new Float32Array(N),cs=[new THREE.Color(0xffcb45),new THREE.Color(0x8a5d0a),new THREE.Color(0x9c46ff)],t=new THREE.Color();
+for(let i=0;i<N;i++){const rr=2.6+Math.random()*8,th=Math.random()*6.28,ph=Math.acos(2*Math.random()-1);po[i*3]=rr*Math.sin(ph)*Math.cos(th);po[i*3+1]=rr*Math.sin(ph)*Math.sin(th)*.7;po[i*3+2]=rr*Math.cos(ph)-2;const k=Math.random();t.copy(k<.6?cs[0]:k<.85?cs[1]:cs[2]);co[i*3]=t.r;co[i*3+1]=t.g;co[i*3+2]=t.b;s[i]=Math.random()*.05+.012;}
+const ge=new THREE.BufferGeometry();ge.setAttribute('position',new THREE.BufferAttribute(po,3));ge.setAttribute('color',new THREE.BufferAttribute(co,3));ge.setAttribute('aSize',new THREE.BufferAttribute(s,1));
+const ma=new THREE.ShaderMaterial({uniforms:{uTex:{value:tx},uTime:{value:0}},transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,vertexShader:'attribute float aSize;attribute vec3 color;varying vec3 vC;uniform float uTime;void main(){vC=color;vec3 p=position;p.y+=sin(uTime*.4+p.x)*.08;vec4 mv=modelViewMatrix*vec4(p,1.);gl_PointSize=aSize*(320./-mv.z);gl_Position=projectionMatrix*mv;}',fragmentShader:'uniform sampler2D uTex;varying vec3 vC;void main(){vec4 cc=texture2D(uTex,gl_PointCoord);gl_FragColor=vec4(vC,cc.a*.9);}'});
+const pt=new THREE.Points(ge,ma);sc.add(pt);addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();r.setSize(innerWidth,innerHeight);});
+(function a(){requestAnimationFrame(a);const tm=performance.now()*.001;ma.uniforms.uTime.value=tm;pt.rotation.y=tm*.03;r.render(sc,cam);})();});
+</script>
+</body>
+</html>
