@@ -725,11 +725,16 @@ document.querySelectorAll('.code').forEach(btn=>{
   const groupIdx = Math.floor(Date.now() / 21600000) % Math.ceil(products.length / 4);
   const shown = products.slice(groupIdx * 4, groupIdx * 4 + 4);
 
+  function thumb(url){
+    /* pide una miniatura al CDN en vez de la imagen a tamaño completo cuando
+       la URL no trae ya sus propios parámetros de tamaño */
+    return url.indexOf('?') === -1 ? url + '?w=500&h=500' : url;
+  }
   grid.innerHTML = shown.map(function(p){
     return '<a class="hcard reveal in" href="producto/' + p.s + '.html">' +
       '<div class="himg">' +
         (p.b ? '<span class="hbatch">' + p.b + '</span>' : '') +
-        '<img src="' + p.i + '" alt="' + p.n + '" loading="lazy" decoding="async" onload="this.classList.add(\'loaded\')" onerror="this.style.display=\'none\'">' +
+        '<img src="' + thumb(p.i) + '" alt="' + p.n + '" loading="lazy" decoding="async" onload="this.classList.add(\'loaded\')" onerror="this.style.display=\'none\'">' +
       '</div>' +
       '<div class="hmeta">' +
         '<span class="hcat">' + p.c + '</span>' +
@@ -877,16 +882,26 @@ function track(p,stops){
 
 let lastFrameTime=0;
 const FRAME_INTERVAL=1000/30;
+let perfFrames=0, perfSum=0, circuitTripped=false;
+function degradeToFallback(){
+  circuitTripped=true;
+  const canvas=document.getElementById('scene');
+  if(canvas) canvas.style.display='none';
+  const fb=document.getElementById('fallback');
+  if(fb) fb.style.display='flex';
+}
 function animate(now){
   /* con "reducir movimiento" activado, se pinta un único fotograma estático y
      no se reprograma el bucle: respeta la preferencia del usuario y evita
      el coste continuo de render en dispositivos modestos */
+  if(circuitTripped) return;
   if(!reduce) requestAnimationFrame(animate);
   if(document.hidden) return;
   if(!reduce){
     if(now-lastFrameTime<FRAME_INTERVAL) return;
     lastFrameTime=now;
   }
+  const frameStart=performance.now();
   const time=reduce?0:performance.now()*0.001;
   const max=document.documentElement.scrollHeight-innerHeight;
   const p=max>0?Math.min(scrollY/max,1):0;
@@ -924,6 +939,16 @@ function animate(now){
   ambientGlow && (ambientGlow.material.opacity = 0.35 + 0.15*Math.sin(time*0.7));
 
   renderer.render(scene,camera);
+
+  /* disyuntor de rendimiento: si el dispositivo/navegador tarda demasiado en
+     renderizar cada fotograma (GPU débil, render por software, hardware
+     limitado), se abandona la escena 3D y se muestra el fallback estático
+     en vez de seguir consumiendo el hilo principal indefinidamente */
+  if(!reduce && !circuitTripped){
+    perfFrames++;
+    perfSum += performance.now()-frameStart;
+    if(perfFrames===10 && (perfSum/perfFrames)>35) degradeToFallback();
+  }
 }
 
 /* safety: if everything stalls, kill loader after 6s */
