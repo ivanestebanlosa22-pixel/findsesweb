@@ -10,9 +10,9 @@ RewriteRule ^terms\.html$ /terminos.html [R=301,L]
 RewriteRule ^disclaimer\.html$ /afiliados.html [R=301,L]
 RewriteRule ^findses-3d\.html$ /index.html [R=301,L]
 
-# Forzar HTTPS (descomenta cuando tengas SSL)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # -------------------------------------------------------------------
 # COMPRESIÓN GZIP
@@ -62,9 +62,13 @@ ErrorDocument 404 /404.html
 # -------------------------------------------------------------------
 # BLOQUEAR ACCESO A ARCHIVOS SENSIBLES
 # -------------------------------------------------------------------
-<FilesMatch "\.(htaccess|htpasswd|log|sql|bak|config|env)$">
+<FilesMatch "\.(htaccess|htpasswd|log|sql|bak|config|env|py|php|zip)$">
   Require all denied
 </FilesMatch>
+
+# Bloquear acceso a carpetas de control de versiones / herramientas de desarrollo
+RewriteRule ^\.git(/|$) - [F,L]
+RewriteRule ^\.unlighthouse(/|$) - [F,L]
 
 # -------------------------------------------------------------------
 # PREVENIR LISTADO DE DIRECTORIOS
