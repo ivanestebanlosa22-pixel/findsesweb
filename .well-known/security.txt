@@ -1,0 +1,13 @@
+# ===== FINDSES · Contacto de seguridad =====
+# Si encuentras una vulnerabilidad, contáctanos antes de divulgarla públicamente.
+# Agradecemos la divulgación responsable.
+
+Contact: mailto:contacto@findses.com
+Expires: 2027-01-01T00:00:00Z
+Preferred-Languages: es, en
+Canonical: https://findses.com/.well-known/security.txt
+Policy: https://findses.com/privacidad.html
+
+# ----- Reconocimiento -----
+# Agradecemos a todos los investigadores de seguridad que nos ayudan a mantener FindSES seguro.
+# Hall of Fame: https://findses.com/.well-known/security.txt

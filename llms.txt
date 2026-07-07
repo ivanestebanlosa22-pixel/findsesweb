@@ -1,0 +1,25 @@
+# FINDSES
+
+> Agente de compras y catálogo de hallazgos de China para España. Encuentra zapatillas, ropa, bolsos, gorras y más, con fotos QC reales y enlaces a agentes verificados (Kakobuy, USFans, Litbuy). Calidad, precio y confianza.
+
+FindsES es un directorio de afiliación: no vende ni envía productos directamente. Conecta a compradores en España con productos de marketplaces chinos (Weidian, Taobao) a través de agentes de compra, ganando una comisión de afiliado sin coste extra para el usuario.
+
+## Páginas principales
+- [Inicio](https://findses.com/): marca, agentes recomendados y comunidad
+- [Catálogo](https://findses.com/catalogo.html): +3.000 productos con fotos y precio en euros
+- [Cómo comprar](https://findses.com/como-comprar.html): guía paso a paso para comprar con un agente
+- [Herramientas](https://findses.com/herramientas.html): conversor de enlaces, calculadora de envío, tallas y aduanas
+- [Quiénes somos](https://findses.com/quienes-somos.html): qué es FindsES y cómo funciona
+- [Blog](https://findses.com/blog.html): guías, comparativas y noticias sobre compras en China
+
+## Agentes recomendados
+- Kakobuy (código FINDSES, bono de bienvenida de 450€)
+- USFans (código RCGD5Y, bono de 800€)
+- Litbuy (código YBMHFG55L, bono de 500€)
+
+## Legal
+- [Aviso Legal](https://findses.com/aviso-legal.html)
+- [Términos](https://findses.com/terminos.html)
+- [Privacidad](https://findses.com/privacidad.html)
+- [Cookies](https://findses.com/cookies.html)
+- [Afiliados](https://findses.com/afiliados.html)

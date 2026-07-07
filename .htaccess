@@ -1,0 +1,77 @@
+# ===== FINDSES · Configuración de servidor Apache =====
+# Activar el motor de reescritura (requerido para redirecciones)
+RewriteEngine On
+
+# -------------------------------------------------------------------
+# REDIRECCIONES: URLs antiguas → nuevas URLs correctas
+# -------------------------------------------------------------------
+RewriteRule ^privacy\.html$ /privacidad.html [R=301,L]
+RewriteRule ^terms\.html$ /terminos.html [R=301,L]
+RewriteRule ^disclaimer\.html$ /afiliados.html [R=301,L]
+RewriteRule ^findses-3d\.html$ /index.html [R=301,L]
+
+# Forzar HTTPS (descomenta cuando tengas SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# -------------------------------------------------------------------
+# COMPRESIÓN GZIP
+# -------------------------------------------------------------------
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml font/ttf font/opentype
+SetEnvIfNoCase Request_URI \.(?:webp|gif|jpe?g|png|zip|gz|mp4|webm)$ no-gzip
+
+# -------------------------------------------------------------------
+# CACHÉ DEL NAVEGADOR
+# -------------------------------------------------------------------
+ExpiresActive On
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType text/javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType font/woff "access plus 1 year"
+ExpiresByType application/font-woff "access plus 1 year"
+ExpiresByType text/html "access plus 1 hour"
+ExpiresByType application/json "access plus 1 hour"
+ExpiresByType application/xml "access plus 1 day"
+
+# -------------------------------------------------------------------
+# HEADERS DE SEGURIDAD (aplican sin condiciones - sin IfModule)
+# -------------------------------------------------------------------
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+Header always set Cross-Origin-Resource-Policy "cross-origin"
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+# Content Security Policy
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+
+# -------------------------------------------------------------------
+# PÁGINA 404 PERSONALIZADA
+# -------------------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# -------------------------------------------------------------------
+# BLOQUEAR ACCESO A ARCHIVOS SENSIBLES
+# -------------------------------------------------------------------
+<FilesMatch "\.(htaccess|htpasswd|log|sql|bak|config|env)$">
+  Require all denied
+</FilesMatch>
+
+# -------------------------------------------------------------------
+# PREVENIR LISTADO DE DIRECTORIOS
+# -------------------------------------------------------------------
+Options -Indexes
+
+# -------------------------------------------------------------------
+# CHARSET POR DEFECTO
+# -------------------------------------------------------------------
+AddDefaultCharset UTF-8
