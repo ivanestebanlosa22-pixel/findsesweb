@@ -15,7 +15,9 @@
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800;900&family=Sora:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,7 +83,7 @@ h1.big em{font-style:normal;color:var(--gold);text-shadow:0 0 40px rgba(255,106,
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;max-width:1100px;margin:0 auto}
 .foot .brandcol{display:flex;flex-direction:column;gap:4px}
 .foot p.tag{color:var(--chrome-dim);font-size:13px;line-height:1.6;font-weight:300;max-width:34ch}
-.foot h5{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.foot h3{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .foot a{display:block;color:var(--chrome-dim);text-decoration:none;font-size:13px;margin-bottom:9px;transition:color .3s}
 .foot a:hover{color:var(--gold)}
 .foot .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
@@ -169,8 +171,8 @@ h1.big em{font-style:normal;color:var(--gold);text-shadow:0 0 40px rgba(255,106,
 <footer class="foot">
   <div class="foot-grid">
     <div class="brandcol"><span style="font-family:'Saira Condensed';font-weight:900;font-size:22px;transform:skewX(-8deg)"><span style="color:#F8FAFC">FIND</span><span style="color:#FF6A00">SES</span></span><p class="tag">Los mejores hallazgos de China, directo a España.</p></div>
-    <div><h5>Navegación</h5><a href="../index.html">Inicio</a><a href="../catalogo.html">Catálogo</a><a href="../como-comprar.html">Cómo comprar</a><a href="../herramientas.html">Herramientas</a><a href="../quienes-somos.html">Quiénes somos</a></div>
-    <div><h5>Legal</h5><a href="../aviso-legal.html">Aviso legal</a><a href="../terminos.html">Términos</a><a href="../privacidad.html">Privacidad</a><a href="../cookies.html">Cookies</a><a href="../afiliados.html">Afiliados</a></div>
+    <div><h3>Navegación</h3><a href="../index.html">Inicio</a><a href="../catalogo.html">Catálogo</a><a href="../como-comprar.html">Cómo comprar</a><a href="../herramientas.html">Herramientas</a><a href="../quienes-somos.html">Quiénes somos</a></div>
+    <div><h3>Legal</h3><a href="../aviso-legal.html">Aviso legal</a><a href="../terminos.html">Términos</a><a href="../privacidad.html">Privacidad</a><a href="../cookies.html">Cookies</a><a href="../afiliados.html">Afiliados</a></div>
   </div>
   <div class="legal"><span>© 2026 FINDSES · Todos los derechos reservados</span></div>
 </footer>

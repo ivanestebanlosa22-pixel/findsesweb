@@ -63,5 +63,6 @@ color:var(--neon);text-decoration:none;border:1px solid rgba(33,230,164,.3);bord
 .qc:hover{background:rgba(33,230,164,.1);border-color:var(--neon)}
 .note{margin-top:22px;font-size:12px;color:#6a6a73;line-height:1.6}
 .foot{position:relative;z-index:10;border-top:1px solid var(--line);text-align:center;padding:36px 6vw 50px;margin-top:50px}
+.foot h3{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .foot p{font-family:'Space Mono';font-size:11px;letter-spacing:.2em;color:var(--chrome-dim);text-transform:uppercase}
 .nav .brand .nav-logo{width:34px;height:34px;border-radius:8px;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 4px 14px -4px rgba(37,99,235,.6)}
