@@ -62,9 +62,13 @@ ErrorDocument 404 /404.html
 # -------------------------------------------------------------------
 # BLOQUEAR ACCESO A ARCHIVOS SENSIBLES
 # -------------------------------------------------------------------
-<FilesMatch "\.(htaccess|htpasswd|log|sql|bak|config|env)$">
+<FilesMatch "\.(htaccess|htpasswd|log|sql|bak|config|env|py|php|zip)$">
   Require all denied
 </FilesMatch>
+
+# Bloquear acceso a carpetas de control de versiones / herramientas de desarrollo
+RewriteRule ^\.git(/|$) - [F,L]
+RewriteRule ^\.unlighthouse(/|$) - [F,L]
 
 # -------------------------------------------------------------------
 # PREVENIR LISTADO DE DIRECTORIOS
