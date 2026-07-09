@@ -1,9 +1,11 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <link rel="stylesheet" href="../assets/findses.css">
 
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../favicon.png">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <title>Converse Chuck Taylor Shoes 6 colorways [Premium Quality] — FindsES - Producto con fotos QC</title>
@@ -90,15 +92,16 @@ color:var(--neon);text-decoration:none;border:1px solid rgba(33,230,164,.3);bord
 .nav .brand .nav-logo{width:34px;height:34px;border-radius:8px;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 4px 14px -4px rgba(37,99,235,.6)}
 </style>
 </head>
-<body>
+<body><a href="#main" class="skip-link">Saltar al contenido</a>
 <canvas id="bg"></canvas>
 <div class="grain"></div>
+<div class="vignette"></div>
 <div id="reticle"><span class="c tl"></span><span class="c tr"></span><span class="c bl"></span><span class="c br"></span><span class="dot"></span></div>
 
-<header class="nav" id="nav"><a class="brand" href="../index.html"><img src="../assets/bg-hero.png" alt="FINDSES" width="34" height="34" class="nav-logo" /><span class="a">FIND</span><span class="g">SES</span></a><nav class="links" id="navlinks"><a href="../index.html">Inicio</a><a href="../catalogo.html">Catálogo</a><a href="../como-comprar.html">Cómo comprar</a><a href="../herramientas.html">Herramientas</a><a href="../blog.html">Blog</a><a href="../quienes-somos.html">Quiénes somos</a></nav><button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button></header>
+<header class="nav" id="nav"><a class="brand" href="../index.html"><img src="../assets/bg-hero.webp" alt="FINDSES" width="34" height="34" class="nav-logo" /><span class="a">FIND</span><span class="g">SES</span></a><nav class="links" id="navlinks"><a href="../index.html">Inicio</a><a href="../catalogo.html">Catálogo</a><a href="../como-comprar.html">Cómo comprar</a><a href="../herramientas.html">Herramientas</a><a href="../blog.html">Blog</a><a href="../quienes-somos.html">Quiénes somos</a></nav><button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button></header>
 
 <div class="wrap">
-  <div class="crumb"><a href="../index.html">Inicio</a> · <a href="../catalogo.html">Catálogo</a> · <a href="../catalogo.html">Zapatillas</a> · <b>Converse Chuck Taylor Shoes 6 colorways [Premium Quality]</b></div>
+  <nav aria-label="Breadcrumb" class="crumb"><ol itemscope itemtype="https://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="../index.html"><span itemprop="name">Inicio</span></a><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="../catalogo.html"><span itemprop="name">CatÃ¡logo</span></a><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="../catalogo.html"><span itemprop="name">Zapatillas</span></a><meta itemprop="position" content="3"></li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Converse Chuck Taylor Shoes 6 colorways [Premium Quality]</span><meta itemprop="position" content="4"></li></ol></nav>
   <div class="product">
     <div class="gallery">
       <div class="main"><img id="mainimg" src="https://si.geilicdn.com/open1704625661-1234478995-521c00000197fd9bab9c0a23b4de_2560_2560.jpg" alt="Converse Chuck Taylor Shoes 6 colorways [Premium Quality]"></div>
@@ -170,7 +173,7 @@ addEventListener('mousemove',e=>{ret.style.opacity='1';if(!snapped){tx=e.clientX
 addEventListener('mouseleave',()=>ret.style.opacity='0');
 function snapTo(el){const r=el.getBoundingClientRect(),p=8;snapped=true;ret.classList.add('snap');ret.style.width=(r.width+p*2)+'px';ret.style.height=(r.height+p*2)+'px';ret.style.left=(r.left+r.width/2)+'px';ret.style.top=(r.top+r.height/2)+'px';}
 function release(){if(!snapped)return;rx=parseFloat(ret.style.left)||rx;ry=parseFloat(ret.style.top)||ry;snapped=false;ret.classList.remove('snap');}
-document.querySelectorAll('.agent-btn,.thumbs button,.qc,.nav .links a').forEach(t=>{t.addEventListener('mouseenter',()=>snapTo(t));t.addEventListener('mouseleave',release);});
+document.querySelectorAll('.agent-btn,.thumbs button,.qc,.nav .links a,.foot a').forEach(t=>{t.addEventListener('mouseenter',()=>snapTo(t));t.addEventListener('mouseleave',release);});
 addEventListener('scroll',release,{passive:true});
 (function loop(){requestAnimationFrame(loop);if(snapped)return;rx+=(tx-rx)*.22;ry+=(ty-ry)*.22;ret.style.width=FREE+'px';ret.style.height=FREE+'px';ret.style.left=rx+'px';ret.style.top=ry+'px';})();})();
 addEventListener('load',()=>{const c=document.getElementById('bg');if(!c||typeof THREE=='undefined'||reduce)return;let r;try{r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true});}catch(e){return;}if(!r.getContext())return;
@@ -184,6 +187,6 @@ const pt=new THREE.Points(ge,ma);sc.add(pt);addEventListener('resize',()=>{cam.a
 (function a(){requestAnimationFrame(a);const tm=performance.now()*.001;ma.uniforms.uTime.value=tm;pt.rotation.y=tm*.03;r.render(sc,cam);})();});
 </script>
 
-<script src="../assets/findses.js"></script>
+
 </body>
 </html>

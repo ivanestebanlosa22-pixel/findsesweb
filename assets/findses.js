@@ -48,10 +48,26 @@
       rx+=(tx-rx)*0.22;ry+=(ty-ry)*0.22;ret.style.width=FREE+'px';ret.style.height=FREE+'px';ret.style.left=rx+'px';ret.style.top=ry+'px';})();
   })();
 
+  /* ---------- cookie consent ---------- */
+  (function(){
+    if(localStorage.getItem('findses_cookies'))return;
+    var b=document.createElement('div');
+    b.innerHTML='<div style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0F172A;color:#F8FAFC;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:2px solid #FF6A00;font-size:13px">'+
+      '<span style="flex:1;min-width:200px">Usamos cookies para mejorar tu experiencia. <a href="/cookies.html" style="color:#FF6A00;text-decoration:underline">M\u00e1s info</a></span>'+
+      '<div style="display:flex;gap:8px">'+
+        '<button id="cookie-reject" style="background:transparent;color:#D1D5DB;border:1px solid #333;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:12px">Rechazar</button>'+
+        '<button id="cookie-accept" style="background:#FF6A00;color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700">Aceptar</button>'+
+      '</div></div>';
+    document.body.appendChild(b);
+    document.getElementById('cookie-accept').onclick=function(){localStorage.setItem('findses_cookies','accepted');b.remove();};
+    document.getElementById('cookie-reject').onclick=function(){localStorage.setItem('findses_cookies','rejected');b.remove();};
+  })();
+
   /* ---------- background particles (light 3D) ---------- */
-  window.addEventListener('load',()=>{
+  if('ontouchstart' in window || innerWidth<760 || reduce) return;
+  setTimeout(function(){
     const canvas=document.getElementById('bg');
-    if(!canvas || typeof THREE==='undefined' || reduce) return;
+    if(!canvas || typeof THREE==='undefined') return;
     let r; try{r=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});}catch(e){return;}
     if(!r.getContext())return;
     r.setPixelRatio(Math.min(devicePixelRatio,2)); r.setSize(innerWidth,innerHeight);
@@ -60,7 +76,7 @@
     const cv=document.createElement('canvas');cv.width=cv.height=64;const g=cv.getContext('2d');
     const gr=g.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'#fff');gr.addColorStop(.4,'rgba(180,200,255,.6)');gr.addColorStop(1,'rgba(0,0,0,0)');
     g.fillStyle=gr;g.fillRect(0,0,64,64);const tex=new THREE.CanvasTexture(cv);
-    const N=innerWidth<760?700:1500;
+    const N=innerWidth<760?300:600;
     const pos=new Float32Array(N*3),col=new Float32Array(N*3),sz=new Float32Array(N);
     const cols=[new THREE.Color(0xFF8533),new THREE.Color(0xCC5500),new THREE.Color(0x2563EB)],t=new THREE.Color();
     for(let i=0;i<N;i++){const r2=2.6+Math.random()*8,th=Math.random()*6.28,ph=Math.acos(2*Math.random()-1);
@@ -77,12 +93,14 @@
         gl_PointSize=aSize*(320./-mv.z);gl_Position=projectionMatrix*mv;}`,
       fragmentShader:`uniform sampler2D uTex;varying vec3 vC;void main(){vec4 c=texture2D(uTex,gl_PointCoord);gl_FragColor=vec4(vC,c.a*.9);}`});
     const pts=new THREE.Points(geo,mat);scene.add(pts);
-    let mx=0,my=0,tmx=0,tmy=0;
+    let mx=0,my=0,tmx=0,tmy=0,_hidden=false;
     addEventListener('mousemove',e=>{tmx=e.clientX/innerWidth-.5;tmy=e.clientY/innerHeight-.5;},{passive:true});
     addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();r.setSize(innerWidth,innerHeight);});
-    (function anim(){requestAnimationFrame(anim);const tm=performance.now()*.001;mat.uniforms.uTime.value=tm;
+    document.addEventListener('visibilitychange',()=>{_hidden=document.hidden;});
+    var _sk=0;
+    (function anim(){requestAnimationFrame(anim);if(_hidden)return;if(++_sk%3!=0)return;const tm=performance.now()*.001;mat.uniforms.uTime.value=tm;
       pts.rotation.y=tm*.03;pts.rotation.x=Math.sin(tm*.1)*.08;
       mx+=(tmx-mx)*.04;my+=(tmy-my)*.04;cam.position.x=mx*1.2;cam.position.y=-my*.9;cam.lookAt(0,0,0);
       r.render(scene,cam);})();
-  });
+  }, 3000);
 })();

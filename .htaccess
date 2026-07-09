@@ -10,9 +10,9 @@ RewriteRule ^terms\.html$ /terminos.html [R=301,L]
 RewriteRule ^disclaimer\.html$ /afiliados.html [R=301,L]
 RewriteRule ^findses-3d\.html$ /index.html [R=301,L]
 
-# Forzar HTTPS (descomenta cuando tengas SSL)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # -------------------------------------------------------------------
 # COMPRESIÓN GZIP
@@ -52,7 +52,7 @@ Header always set Cross-Origin-Resource-Policy "cross-origin"
 Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
 # Content Security Policy
-Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' fonts.googleapis.com 'unsafe-inline'; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; prefetch-src 'self' fonts.googleapis.com fonts.gstatic.com"
 
 # -------------------------------------------------------------------
 # PÁGINA 404 PERSONALIZADA
@@ -70,6 +70,21 @@ ErrorDocument 404 /404.html
 # PREVENIR LISTADO DE DIRECTORIOS
 # -------------------------------------------------------------------
 Options -Indexes
+
+# -------------------------------------------------------------------
+# PRELOAD DE FUENTES CRÍTICAS
+# -------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set Link "</assets/fonts/Sora-Variable.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
+</IfModule>
+
+# -------------------------------------------------------------------
+# CACHE DE FUENTES (ya cubierto arriba pero refuerzo)
+# -------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+</IfModule>
 
 # -------------------------------------------------------------------
 # CHARSET POR DEFECTO
